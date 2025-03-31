@@ -120,7 +120,6 @@ void ABomberman_0120252GameMode::SpawnBloques()
 						break;
 					case 0:
 						break;
-					// Add other cases as needed
 				}
 			}
 		}

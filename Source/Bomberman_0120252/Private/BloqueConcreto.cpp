@@ -6,23 +6,10 @@
 #include "Materials/MaterialInterface.h"
 #include "UObject/ConstructorHelpers.h"
 
-// Sets default values
 ABloqueConcreto::ABloqueConcreto()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
-	InicializarBloque(FVector(2.0f, 2.0f, 2.0f), FVector(0.0f, 0.0f, 50.0f));
-
-}
-ABloqueConcreto::ABloqueConcreto(FVector Escala, FVector Posicion)
-{
-	InicializarBloque(Escala, Posicion);
-}
-
-void ABloqueConcreto::InicializarBloque(FVector Escala, FVector Posicion)
-{
-	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	// No necesitamos Tick, el bloque no cambia con el tiempo
+	PrimaryActorTick.bCanEverTick = false;
 
 	// Crear el RootComponent
 	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
@@ -31,6 +18,11 @@ void ABloqueConcreto::InicializarBloque(FVector Escala, FVector Posicion)
 	MallaBloqueConcreto = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MallaBloqueConcreto"));
 	MallaBloqueConcreto->SetupAttachment(RootComponent);
 
+	InicializarBloque();
+}
+
+void ABloqueConcreto::InicializarBloque()
+{
 	// Cargar la malla del bloque (Cubo de StarterContent)
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ObjetoMalla(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cube.Shape_Cube'"));
 	if (ObjetoMalla.Succeeded())
@@ -38,30 +30,22 @@ void ABloqueConcreto::InicializarBloque(FVector Escala, FVector Posicion)
 		MallaBloqueConcreto->SetStaticMesh(ObjetoMalla.Object);
 	}
 
-	// Cargar el material desde los archivos del juego
+	// Cargar y asignar material
 	static ConstructorHelpers::FObjectFinder<UMaterialInterface> ObjetoMaterial(TEXT("Material'/Game/StarterContent/Materials/M_CobbleStone_Rough.M_CobbleStone_Rough'"));
 	if (ObjetoMaterial.Succeeded())
 	{
-		MaterialBloqueConcreto = ObjetoMaterial.Object;
-		MallaBloqueConcreto->SetMaterial(0, MaterialBloqueConcreto);
+		MallaBloqueConcreto->SetMaterial(0, ObjetoMaterial.Object);
 	}
 
 	// Escalar el bloque
-	//MallaBloqueAcero->SetWorldScale3D(FVector(10.0f, 10.0f, 0.5f));
-	SetActorLocation(Posicion);
+	//MallaBloqueConcreto->SetWorldScale3D(FVector(2.0f, 2.0f, 2.0f));
+
+	// Posición inicial
+	SetActorLocation(FVector(0.0f, 0.0f, 50.0f));
 }
 
-// Called when the game starts or when spawned
 void ABloqueConcreto::BeginPlay()
 {
 	Super::BeginPlay();
-	
-}
-
-// Called every frame
-void ABloqueConcreto::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
 }
 

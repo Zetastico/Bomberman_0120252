@@ -44,6 +44,9 @@ class ABomberman_0120252Character : public ACharacter
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* LookAction;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Input")
+	UInputAction* DestruirBloqueAction;
+
 public:
 	ABomberman_0120252Character();
 	
@@ -56,12 +59,14 @@ protected:
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
 			
+	void DestruirBloque();
 
 protected:
 
 	virtual void NotifyControllerChanged() override;
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
 
 public:
 	/** Returns CameraBoom subobject **/

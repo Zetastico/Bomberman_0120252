@@ -105,6 +105,10 @@ struct Z_Construct_UClass_ABomberman_0120252Character_Statics
 		{ "ToolTip", "Look Input Action" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DestruirBloqueAction_MetaData[] = {
+		{ "Category", "Input" },
+		{ "ModuleRelativePath", "Bomberman_0120252Character.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CameraBoom;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_FollowCamera;
@@ -112,6 +116,7 @@ struct Z_Construct_UClass_ABomberman_0120252Character_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_JumpAction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_MoveAction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_LookAction;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_DestruirBloqueAction;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -125,6 +130,7 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABomberman_012
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABomberman_0120252Character_Statics::NewProp_JumpAction = { "JumpAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABomberman_0120252Character, JumpAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_JumpAction_MetaData), NewProp_JumpAction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABomberman_0120252Character_Statics::NewProp_MoveAction = { "MoveAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABomberman_0120252Character, MoveAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MoveAction_MetaData), NewProp_MoveAction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABomberman_0120252Character_Statics::NewProp_LookAction = { "LookAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABomberman_0120252Character, LookAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LookAction_MetaData), NewProp_LookAction_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABomberman_0120252Character_Statics::NewProp_DestruirBloqueAction = { "DestruirBloqueAction", nullptr, (EPropertyFlags)0x0040000000010001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABomberman_0120252Character, DestruirBloqueAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DestruirBloqueAction_MetaData), NewProp_DestruirBloqueAction_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABomberman_0120252Character_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABomberman_0120252Character_Statics::NewProp_CameraBoom,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABomberman_0120252Character_Statics::NewProp_FollowCamera,
@@ -132,6 +138,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABomberma
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABomberman_0120252Character_Statics::NewProp_JumpAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABomberman_0120252Character_Statics::NewProp_MoveAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABomberman_0120252Character_Statics::NewProp_LookAction,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABomberman_0120252Character_Statics::NewProp_DestruirBloqueAction,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ABomberman_0120252Character_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ABomberman_0120252Character_Statics::DependentSingletons[])() = {
@@ -174,10 +181,10 @@ ABomberman_0120252Character::~ABomberman_0120252Character() {}
 struct Z_CompiledInDeferFile_FID_Users_Magne_Documents_Unreal_Projects_Bomberman_0120252_Source_Bomberman_0120252_Bomberman_0120252Character_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABomberman_0120252Character, ABomberman_0120252Character::StaticClass, TEXT("ABomberman_0120252Character"), &Z_Registration_Info_UClass_ABomberman_0120252Character, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABomberman_0120252Character), 3731674305U) },
+		{ Z_Construct_UClass_ABomberman_0120252Character, ABomberman_0120252Character::StaticClass, TEXT("ABomberman_0120252Character"), &Z_Registration_Info_UClass_ABomberman_0120252Character, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABomberman_0120252Character), 3338040691U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Magne_Documents_Unreal_Projects_Bomberman_0120252_Source_Bomberman_0120252_Bomberman_0120252Character_h_3796758844(TEXT("/Script/Bomberman_0120252"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Magne_Documents_Unreal_Projects_Bomberman_0120252_Source_Bomberman_0120252_Bomberman_0120252Character_h_2706124933(TEXT("/Script/Bomberman_0120252"),
 	Z_CompiledInDeferFile_FID_Users_Magne_Documents_Unreal_Projects_Bomberman_0120252_Source_Bomberman_0120252_Bomberman_0120252Character_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Magne_Documents_Unreal_Projects_Bomberman_0120252_Source_Bomberman_0120252_Bomberman_0120252Character_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

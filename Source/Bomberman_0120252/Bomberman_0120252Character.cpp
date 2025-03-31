@@ -10,6 +10,8 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
+#include "BloqueMadera.h"
+#include "BloqueLadrillo.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
@@ -85,6 +87,9 @@ void ABomberman_0120252Character::SetupPlayerInputComponent(UInputComponent* Pla
 
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ABomberman_0120252Character::Look);
+
+		// DestruirBloque
+		EnhancedInputComponent->BindAction(DestruirBloqueAction, ETriggerEvent::Started, this, &ABomberman_0120252Character::DestruirBloque);
 	}
 	else
 	{
@@ -125,5 +130,45 @@ void ABomberman_0120252Character::Look(const FInputActionValue& Value)
 		// add yaw and pitch input to controller
 		AddControllerYawInput(LookAxisVector.X);
 		AddControllerPitchInput(LookAxisVector.Y);
+	}
+}
+
+void ABomberman_0120252Character::DestruirBloque()
+{
+	//UE_LOG(LogTemplateCharacter, Log, TEXT("DestruirBloque"));
+	FVector UbicacionJugador = GetActorLocation();  // Obtiene la posición del personaje
+	float RadioDeteccion = 200.0f;                  // Rango de detección en unidades
+
+	// Configurar la colisión en forma de esfera
+	FCollisionShape EsferaColision = FCollisionShape::MakeSphere(RadioDeteccion);
+
+	// Almacenar los resultados de la colisión
+	TArray<FHitResult> Resultados;
+	FCollisionQueryParams Params;
+	Params.AddIgnoredActor(this);  // Ignora al propio personaje
+
+	UWorld* Mundo = GetWorld();
+	if (Mundo)
+	{
+		// Realiza una detección en el área alrededor del jugador
+		bool bImpacto = Mundo->SweepMultiByChannel(Resultados, UbicacionJugador, UbicacionJugador, FQuat::Identity, ECC_PhysicsBody, EsferaColision, Params);
+
+		if (bImpacto)
+		{
+			for (const FHitResult& Hit : Resultados)
+			{
+				AActor* ActorImpactado = Hit.GetActor();
+				if (ActorImpactado)
+				{
+					// Solo destruye los bloques de ladrillo (o los que sean destruibles)
+					if (ActorImpactado->IsA(ABloqueLadrillo::StaticClass()))
+					{
+						ActorImpactado->Destroy();
+						UE_LOG(LogTemp, Warning, TEXT("Bloque destruido!"));
+						return; // Solo destruir un bloque por vez
+					}
+				}
+			}
+		}
 	}
 }

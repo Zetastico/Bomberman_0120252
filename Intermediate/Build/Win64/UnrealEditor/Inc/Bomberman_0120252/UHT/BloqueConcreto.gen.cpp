@@ -13,7 +13,6 @@ void EmptyLinkFunctionForGeneratedCodeBloqueConcreto() {}
 BOMBERMAN_0120252_API UClass* Z_Construct_UClass_ABloqueConcreto();
 BOMBERMAN_0120252_API UClass* Z_Construct_UClass_ABloqueConcreto_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_AActor();
-ENGINE_API UClass* Z_Construct_UClass_UMaterialInterface_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 UPackage* Z_Construct_UPackage__Script_Bomberman_0120252();
 // End Cross Module References
@@ -39,12 +38,8 @@ struct Z_Construct_UClass_ABloqueConcreto_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/BloqueConcreto.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MaterialBloqueConcreto_MetaData[] = {
-		{ "ModuleRelativePath", "Public/BloqueConcreto.h" },
-	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_MallaBloqueConcreto;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_MaterialBloqueConcreto;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -53,10 +48,8 @@ struct Z_Construct_UClass_ABloqueConcreto_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABloqueConcreto_Statics::NewProp_MallaBloqueConcreto = { "MallaBloqueConcreto", nullptr, (EPropertyFlags)0x00400000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABloqueConcreto, MallaBloqueConcreto), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MallaBloqueConcreto_MetaData), NewProp_MallaBloqueConcreto_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABloqueConcreto_Statics::NewProp_MaterialBloqueConcreto = { "MaterialBloqueConcreto", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABloqueConcreto, MaterialBloqueConcreto), Z_Construct_UClass_UMaterialInterface_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MaterialBloqueConcreto_MetaData), NewProp_MaterialBloqueConcreto_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABloqueConcreto_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABloqueConcreto_Statics::NewProp_MallaBloqueConcreto,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABloqueConcreto_Statics::NewProp_MaterialBloqueConcreto,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ABloqueConcreto_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ABloqueConcreto_Statics::DependentSingletons[])() = {
@@ -99,10 +92,10 @@ ABloqueConcreto::~ABloqueConcreto() {}
 struct Z_CompiledInDeferFile_FID_Users_Magne_Documents_Unreal_Projects_Bomberman_0120252_Source_Bomberman_0120252_Public_BloqueConcreto_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABloqueConcreto, ABloqueConcreto::StaticClass, TEXT("ABloqueConcreto"), &Z_Registration_Info_UClass_ABloqueConcreto, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABloqueConcreto), 2850584845U) },
+		{ Z_Construct_UClass_ABloqueConcreto, ABloqueConcreto::StaticClass, TEXT("ABloqueConcreto"), &Z_Registration_Info_UClass_ABloqueConcreto, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABloqueConcreto), 3612674936U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Magne_Documents_Unreal_Projects_Bomberman_0120252_Source_Bomberman_0120252_Public_BloqueConcreto_h_3563574701(TEXT("/Script/Bomberman_0120252"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Magne_Documents_Unreal_Projects_Bomberman_0120252_Source_Bomberman_0120252_Public_BloqueConcreto_h_3523521173(TEXT("/Script/Bomberman_0120252"),
 	Z_CompiledInDeferFile_FID_Users_Magne_Documents_Unreal_Projects_Bomberman_0120252_Source_Bomberman_0120252_Public_BloqueConcreto_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Magne_Documents_Unreal_Projects_Bomberman_0120252_Source_Bomberman_0120252_Public_BloqueConcreto_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

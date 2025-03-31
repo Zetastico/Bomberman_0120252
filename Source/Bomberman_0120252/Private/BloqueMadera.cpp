@@ -10,22 +10,6 @@ ABloqueMadera::ABloqueMadera()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	InicializarBloque(FVector(2.0f, 2.0f, 2.0f), FVector(0.0f, 0.0f, 50.0f));
-	
-
-
-}
-
-// Constructor con tamaño y posición personalizados
-ABloqueMadera::ABloqueMadera(FVector Escala, FVector Posicion)
-{
-	InicializarBloque(Escala, Posicion);
-}
-
-void ABloqueMadera::InicializarBloque(FVector Escala, FVector Posicion)
-{
-	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
 
 	// Crear el RootComponent
 	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
@@ -34,6 +18,13 @@ void ABloqueMadera::InicializarBloque(FVector Escala, FVector Posicion)
 	MallaBloqueMadera = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MallaBloqueMadera"));
 	MallaBloqueMadera->SetupAttachment(RootComponent);
 
+	InicializarBloque();
+
+}
+
+
+void ABloqueMadera::InicializarBloque()
+{
 	// Cargar la malla del bloque (Cubo de StarterContent)
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ObjetoMalla(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cube.Shape_Cube'"));
 	if (ObjetoMalla.Succeeded())
@@ -41,17 +32,18 @@ void ABloqueMadera::InicializarBloque(FVector Escala, FVector Posicion)
 		MallaBloqueMadera->SetStaticMesh(ObjetoMalla.Object);
 	}
 
-	// Cargar el material desde los archivos del juego
-	static ConstructorHelpers::FObjectFinder<UMaterialInterface> ObjetoMaterial(TEXT("Material'/Game/StarterContent/Materials/M_Wood_Oak.M_Wood_Oak'"));
+	// Cargar y asignar material
+	static ConstructorHelpers::FObjectFinder<UMaterialInterface> ObjetoMaterial(TEXT("Material'/Game/StarterContent/Materials/M_Brick_Clay_New.M_Brick_Clay_New'"));
 	if (ObjetoMaterial.Succeeded())
 	{
-		MaterialBloqueMadera = ObjetoMaterial.Object;
-		MallaBloqueMadera->SetMaterial(0, MaterialBloqueMadera);
+		MallaBloqueMadera->SetMaterial(0, ObjetoMaterial.Object);
 	}
 
 	// Escalar el bloque
-	//MallaBloqueAcero->SetWorldScale3D(FVector(10.0f, 10.0f, 0.5f));
-	SetActorLocation(Posicion);
+	//MallaBloqueLadrillo->SetWorldScale3D(FVector(2.0f, 2.0f, 2.0f));
+
+	// Posición inicial (por defecto en 0,0,50)
+	SetActorLocation(FVector(0.0f, 0.0f, 50.0f));
 	DireccionMovimiento = 1;
 }
 
@@ -81,9 +73,7 @@ void ABloqueMadera::Tick(float DeltaTime)
 	{
 		DireccionMovimiento *= -1;
 	}
-
 	// Aplicar la nueva posición
 	SetActorLocation(NuevaPosicion);
-
 }
 

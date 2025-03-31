@@ -13,9 +13,6 @@ class BOMBERMAN_0120252_API ABloqueMadera : public AActor
 public:	
 	// Sets default values for this actor's properties
 	ABloqueMadera();
-	ABloqueMadera(FVector Escala, FVector Posicion);
-
-	void InicializarBloque(FVector Escala, FVector Posicion);
 
 protected:
 	// Called when the game starts or when spawned
@@ -33,6 +30,6 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	UStaticMeshComponent* MallaBloqueMadera;
 
-	UPROPERTY()
-	UMaterialInterface* MaterialBloqueMadera;
+	void InicializarBloque();
+
 };
