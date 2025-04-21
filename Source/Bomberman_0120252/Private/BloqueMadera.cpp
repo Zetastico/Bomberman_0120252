@@ -11,13 +11,6 @@ ABloqueMadera::ABloqueMadera()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	// Crear el RootComponent
-	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
-
-	// Crear la malla del bloque
-	MallaBloqueMadera = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MallaBloqueMadera"));
-	MallaBloqueMadera->SetupAttachment(RootComponent);
-
 	InicializarBloque();
 
 }
@@ -26,24 +19,19 @@ ABloqueMadera::ABloqueMadera()
 void ABloqueMadera::InicializarBloque()
 {
 	// Cargar la malla del bloque (Cubo de StarterContent)
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ObjetoMalla(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cube.Shape_Cube'"));
-	if (ObjetoMalla.Succeeded())
-	{
-		MallaBloqueMadera->SetStaticMesh(ObjetoMalla.Object);
-	}
 
 	// Cargar y asignar material
-	static ConstructorHelpers::FObjectFinder<UMaterialInterface> ObjetoMaterial(TEXT("Material'/Game/StarterContent/Materials/M_Brick_Clay_New.M_Brick_Clay_New'"));
+	static ConstructorHelpers::FObjectFinder<UMaterialInterface> ObjetoMaterial(TEXT("/Game/StarterContent/Materials/M_Wood_Oak.M_Wood_Oak"));
 	if (ObjetoMaterial.Succeeded())
 	{
-		MallaBloqueMadera->SetMaterial(0, ObjetoMaterial.Object);
+		MallaBloque->SetMaterial(0, ObjetoMaterial.Object);
 	}
 
 	// Escalar el bloque
 	//MallaBloqueLadrillo->SetWorldScale3D(FVector(2.0f, 2.0f, 2.0f));
 
 	// Posición inicial (por defecto en 0,0,50)
-	SetActorLocation(FVector(0.0f, 0.0f, 50.0f));
+	//SetActorLocation(FVector(0.0f, 0.0f, 50.0f));
 	DireccionMovimiento = 1;
 }
 

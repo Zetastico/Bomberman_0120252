@@ -19,7 +19,7 @@ private: \
 	static void StaticRegisterNativesABloqueLadrillo(); \
 	friend struct Z_Construct_UClass_ABloqueLadrillo_Statics; \
 public: \
-	DECLARE_CLASS(ABloqueLadrillo, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Bomberman_0120252"), NO_API) \
+	DECLARE_CLASS(ABloqueLadrillo, ABloqueBase, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Bomberman_0120252"), NO_API) \
 	DECLARE_SERIALIZER(ABloqueLadrillo)
 
 

@@ -19,7 +19,7 @@ private: \
 	static void StaticRegisterNativesABloqueMadera(); \
 	friend struct Z_Construct_UClass_ABloqueMadera_Statics; \
 public: \
-	DECLARE_CLASS(ABloqueMadera, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Bomberman_0120252"), NO_API) \
+	DECLARE_CLASS(ABloqueMadera, ABloqueBase, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Bomberman_0120252"), NO_API) \
 	DECLARE_SERIALIZER(ABloqueMadera)
 
 

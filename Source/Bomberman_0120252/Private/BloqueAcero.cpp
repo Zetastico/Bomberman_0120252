@@ -8,30 +8,17 @@ ABloqueAcero::ABloqueAcero()
 	// No necesitamos Tick, el bloque no cambia con el tiempo
 	PrimaryActorTick.bCanEverTick = false;
 
-	// Crear el RootComponent
-	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RootComponent"));
-
-	// Crear la malla del bloque
-	MallaBloqueAcero = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MallaBloqueAcero"));
-	MallaBloqueAcero->SetupAttachment(RootComponent);
-
 	InicializarBloque();
 }
 
 void ABloqueAcero::InicializarBloque()
 {
-	// Cargar la malla del bloque (Cubo de StarterContent)
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ObjetoMalla(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cube.Shape_Cube'"));
-	if (ObjetoMalla.Succeeded())
-	{
-		MallaBloqueAcero->SetStaticMesh(ObjetoMalla.Object);
-	}
 
 	// Cargar y asignar material
 	static ConstructorHelpers::FObjectFinder<UMaterialInterface> ObjetoMaterial(TEXT("Material'/Game/StarterContent/Materials/M_Metal_Brushed_Nickel.M_Metal_Brushed_Nickel'"));
 	if (ObjetoMaterial.Succeeded())
 	{
-		MallaBloqueAcero->SetMaterial(0, ObjetoMaterial.Object);
+		MallaBloque->SetMaterial(0, ObjetoMaterial.Object);
 	}
 
 	// Escalar el bloque

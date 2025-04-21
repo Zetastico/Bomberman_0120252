@@ -8,6 +8,11 @@
 #include "BloqueMadera.h"
 #include "BloqueLadrillo.h"
 #include "BloqueConcreto.h"
+#include "PuertaTP.h"
+#include "BloqueMov.h"
+#include "EnemigoBase.h"
+#include "Math/UnrealMathUtility.h"
+#include "Kismet/GameplayStatics.h"
 
 ABomberman_0120252GameMode::ABomberman_0120252GameMode()
 {
@@ -22,26 +27,42 @@ void ABomberman_0120252GameMode::BeginPlay()
 {
 	Super::BeginPlay();
 
+	
 	// Generar el MAPA al inicio del juego
 	SpawnMapa();
 
 	//Genera bloques de madera
-	SpawnBloqueMadera();
+	//SpawnBloqueMadera();
 
-	//Genera bloques de ladrillo
-	//SpawnBloqueLadrillo();
+	//Mapa v2 Nivel1
+	SpawnMapa1();
 
-	//Mapa v2
-	SpawnBloques();
+	//Mapa v2 Nivel2
+	//SpawnMapa2();
+
+	//Mapa v2 Nivel2
+	//SpawnMapa3();
+
+	//Posicionar al jugador
+	PosJugador();
+
+
 }
 void ABomberman_0120252GameMode::SpawnMapa()
 {
 	if (UWorld* Mundo = GetWorld())
 	{
 		// Crear el suelo (bloque grande)
-		Mundo->SpawnActor<ABloqueAcero>(ABloqueAcero::StaticClass(), FVector(1360.0f, 1300.0f, -150.0f), FRotator::ZeroRotator)
-			->SetActorScale3D(FVector(25.0f, 25.0f, 0.5f));
+		Mundo->SpawnActor<ABloqueAcero>(ABloqueAcero::StaticClass(), FVector(2400.0f, 2300.0f, -150.0f), FRotator::ZeroRotator)
+			->SetActorScale3D(FVector(50.0f, 50.0f, 0.5f));
 
+		/*Mundo->SpawnActor<ABloqueAcero>(ABloqueAcero::StaticClass(), FVector(1360.0f, 4100.0f, -150.0f), FRotator::ZeroRotator)
+			->SetActorScale3D(FVector(25.0f, 24.0f, 0.5f));
+
+		Mundo->SpawnActor<ABloqueAcero>(ABloqueAcero::StaticClass(), FVector(1360.0f, 7100.0f, -150.0f), FRotator::ZeroRotator)
+			->SetActorScale3D(FVector(25.0f, 24.0f, 0.5f));*/
+
+		/*
 		// Muros verticales (izquierda y derecha)
 		Mundo->SpawnActor<ABloqueAcero>(ABloqueAcero::StaticClass(), FVector(160.0f, 1300.0f, 50.0f), FRotator(90,90,90))
 			->SetActorScale3D(FVector(2.0f, 25.0f, 0.5f));
@@ -60,7 +81,7 @@ void ABomberman_0120252GameMode::SpawnMapa()
 
 		Mundo->SpawnActor<ABloqueAcero>(ABloqueAcero::StaticClass(), FVector(560.0f, 2440.0f, 50.0f), FRotator(90, 0, 90))
 			->SetActorScale3D(FVector(2.0f, 10.0f, 0.5f));
-			
+			*/
 
 		// Mensaje en pantalla
 		//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("Bloques generados"));
@@ -82,46 +103,168 @@ void ABomberman_0120252GameMode::SpawnBloqueMadera() {
 	}
 }
 
-void ABomberman_0120252GameMode::SpawnBloqueLadrillo() {
-	if (UWorld* Mundo = GetWorld()) {
-		for (int i = 0; i < 8; i++) {
-			for (int j = 0; j < 12; j++) {
-				Mundo->SpawnActor<ABloqueLadrillo>(ABloqueLadrillo::StaticClass(), FVector(200.0f + i*300, 200.0f+j*200, -100.0f), FRotator::ZeroRotator)
-					->SetActorScale3D(FVector(1.0f, 1.0f, 1.0f));
+void ABomberman_0120252GameMode::SpawnMapa1()
+{
+	//Recorrer el array de bloques y hacer spawn de cada uno
+	for (int i = 0; i < arrayMapaBloques1.Num(); i++) 
+	{
+		for (int j = 0; j < arrayMapaBloques1[i].Num(); j++) {
+			if (UWorld* Mundo = GetWorld()) {
+				switch(arrayMapaBloques1[i][j])
+				{
+					case 5:
+					Mundo->SpawnActor<APuertaTP>(APuertaTP::StaticClass(), FVector(300.0f + i * 200, 150.0f + j * 200, 0.0f), FRotator::ZeroRotator)
+						->SetActorScale3D(FVector(4.0f, 2.0f, 2.0f));
+					//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("3"));
+					break;
+					case 4:
+						Mundo->SpawnActor<ABloqueAcero>(ABloqueAcero::StaticClass(), FVector(200.0f + i * 200, 150.0f + j * 200, -100.0f), FRotator::ZeroRotator);
+						//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("3"));
+						break;
+					case 3:
+						Mundo->SpawnActor<ABloqueMov>(ABloqueMov::StaticClass(), FVector(200.0f + i * 200, 150.0f + j * 200, -100.0f), FRotator::ZeroRotator);
+						//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("3"));
+						break;
+					case 2: 
+						Mundo->SpawnActor<ABloqueLadrillo>(ABloqueLadrillo::StaticClass(), FVector(200.0f + i * 200, 150.0f + j * 200, -100.0f), FRotator::ZeroRotator);
+						//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("1"));
+						break;
+					case 1:
+						Mundo->SpawnActor<ABloqueConcreto>(ABloqueConcreto::StaticClass(), FVector(200.0f + i * 200, 150.0f + j * 200, -100.0f), FRotator::ZeroRotator);
+						//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("2"));
+						break;
+					case 0:
+						int contador = 0;
+						int Spawn = FMath::RandRange(0, 5);
+						if (contador == 5) {
+							break;
+						}
+						if (Spawn == 5) {
+							FActorSpawnParameters SpawnParams;
+							SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
+
+							FVector SpawnLocation = FVector(200.0f + i * 200, 150.0f + j * 200, -50.0f);
+
+							AEnemigoBase* Enemigo = GetWorld()->SpawnActor<AEnemigoBase>(
+								AEnemigoBase::StaticClass(),
+								SpawnLocation,
+								FRotator::ZeroRotator,
+								SpawnParams
+							);
+							contador++;
+							
+						}
+						break;
+				}
 			}
 		}
 	}
 }
 
-
-void ABomberman_0120252GameMode::SpawnBloques()
+void ABomberman_0120252GameMode::SpawnMapa2()
 {
 	//Recorrer el array de bloques y hacer spawn de cada uno
-	for (int i = 0; i < 12; i++) 
+	for (int i = 0; i < 12; i++)
 	{
 		for (int j = 0; j < 12; j++) {
 			if (UWorld* Mundo = GetWorld()) {
-				switch(arrayMapaBloques[i][j])
+				switch (arrayMapaBloques2[i][j])
 				{
-					case 2: 
-						Mundo->SpawnActor<ABloqueLadrillo>(ABloqueLadrillo::StaticClass(), FVector(200.0f + i * 200, 150.0f + j * 200, -100.0f), FRotator::ZeroRotator)
-							->SetActorScale3D(FVector(2.0f, 2.0f, 2.0f));
-						GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("1"));
-						break;
-					case 1:
-						Mundo->SpawnActor<ABloqueConcreto>(ABloqueConcreto::StaticClass(), FVector(200.0f + i * 200, 150.0f + j * 200, -100.0f), FRotator::ZeroRotator)
-							->SetActorScale3D(FVector(2.0f, 2.0f, 2.0f));
-						GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("2"));
-						break;
-					case 4:
-						Mundo->SpawnActor<ABloqueAcero>(ABloqueAcero::StaticClass(), FVector(200.0f + i * 200, 150.0f + j * 200, -100.0f), FRotator::ZeroRotator)
-							->SetActorScale3D(FVector(2.0f, 2.0f, 2.0f));
-						GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("3"));
-						break;
-					case 0:
-						break;
+				case 5:
+					Mundo->SpawnActor<APuertaTP>(APuertaTP::StaticClass(), FVector(300.0f + i * 200, 3000.0f + j * 200, 0.0f), FRotator::ZeroRotator)
+						->SetActorScale3D(FVector(4.0f, 2.0f, 2.0f));
+					//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("3"));
+					break;
+				case 4:
+					Mundo->SpawnActor<ABloqueAcero>(ABloqueAcero::StaticClass(), FVector(200.0f + i * 200, 3000.0f + j * 200, -100.0f), FRotator::ZeroRotator);
+					//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("3"));
+					break;
+				case 2:
+					Mundo->SpawnActor<ABloqueLadrillo>(ABloqueLadrillo::StaticClass(), FVector(200.0f + i * 200, 3000.0f + j * 200, -100.0f), FRotator::ZeroRotator);
+					//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("1"));
+					break;
+				case 1:
+					Mundo->SpawnActor<ABloqueConcreto>(ABloqueConcreto::StaticClass(), FVector(200.0f + i * 200, 3000.0f + j * 200, -100.0f), FRotator::ZeroRotator);
+					//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("2"));
+					break;
+				case 0:
+					break;
 				}
 			}
 		}
+	}
+}
+
+void ABomberman_0120252GameMode::SpawnMapa3()
+{
+	//Recorrer el array de bloques y hacer spawn de cada uno
+	for (int i = 0; i < 12; i++)
+	{
+		for (int j = 0; j < 12; j++) {
+			if (UWorld* Mundo = GetWorld()) {
+				switch (arrayMapaBloques3[i][j])
+				{
+				case 5:
+					Mundo->SpawnActor<APuertaTP>(APuertaTP::StaticClass(), FVector(300.0f + i * 200, 6000.0f + j * 200, 0.0f), FRotator::ZeroRotator)
+						->SetActorScale3D(FVector(4.0f, 2.0f, 2.0f));
+					//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("3"));
+					break;
+				case 4:
+					Mundo->SpawnActor<ABloqueAcero>(ABloqueAcero::StaticClass(), FVector(200.0f + i * 200, 6000.0f + j * 200, -100.0f), FRotator::ZeroRotator);
+					//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("3"));
+					break;
+				case 2:
+					Mundo->SpawnActor<ABloqueLadrillo>(ABloqueLadrillo::StaticClass(), FVector(200.0f + i * 200, 6000.0f + j * 200, -100.0f), FRotator::ZeroRotator);
+					//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("1"));
+					break;
+				case 1:
+					Mundo->SpawnActor<ABloqueConcreto>(ABloqueConcreto::StaticClass(), FVector(200.0f + i * 200, 6000.0f + j * 200, -100.0f), FRotator::ZeroRotator);
+					//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("2"));
+					break;
+				case 0:
+					break;
+				}
+			}
+		}
+	}
+}
+
+void ABomberman_0120252GameMode::PosJugador()
+{
+	TArray<FVector> BloquesCandidatos;
+
+	// Recorrer la matriz buscando bloques de madera (valor 6)
+	for (int i = 0; i < arrayMapaBloques1.Num(); i++)
+	{
+		for (int j = 0; j < arrayMapaBloques1[i].Num(); j++)
+		{
+			if (arrayMapaBloques1[i][j] == 3) // 6 = bloque de madera
+			{
+				// Verificar si está cerca del borde (0,1,10,11)
+				if (i <= 1 || i >= 10 || j <= 1 || j >= 10)
+				{
+					FVector Posicion = FVector(200.0f + i * 200, 150.0f + j * 200, 100.0f); // Ajustar Z si es necesario
+					BloquesCandidatos.Add(Posicion);
+				}
+			}
+		}
+	}
+
+	if (BloquesCandidatos.Num() > 0)
+	{
+		int IndexAleatorio = FMath::RandRange(0, BloquesCandidatos.Num() - 1);
+		FVector PosicionFinal = BloquesCandidatos[IndexAleatorio];
+
+		if (APlayerController* PC = UGameplayStatics::GetPlayerController(this, 0))
+		{
+			if (APawn* Jugador = PC->GetPawn())
+			{
+				Jugador->SetActorLocation(PosicionFinal);
+			}
+		}
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("No se encontraron bloques de madera cercanos a los bordes."));
 	}
 }

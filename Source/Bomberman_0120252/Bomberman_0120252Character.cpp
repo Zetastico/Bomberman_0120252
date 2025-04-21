@@ -10,7 +10,7 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
-#include "BloqueMadera.h"
+#include "BloqueConcreto.h"
 #include "BloqueLadrillo.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
@@ -135,6 +135,7 @@ void ABomberman_0120252Character::Look(const FInputActionValue& Value)
 
 void ABomberman_0120252Character::DestruirBloque()
 {
+	/*
 	//UE_LOG(LogTemplateCharacter, Log, TEXT("DestruirBloque"));
 	FVector UbicacionJugador = GetActorLocation();  // Obtiene la posición del personaje
 	float RadioDeteccion = 200.0f;                  // Rango de detección en unidades
@@ -161,7 +162,7 @@ void ABomberman_0120252Character::DestruirBloque()
 				if (ActorImpactado)
 				{
 					// Solo destruye los bloques de ladrillo (o los que sean destruibles)
-					if (ActorImpactado->IsA(ABloqueLadrillo::StaticClass()))
+					if (ActorImpactado->IsA(ABloqueLadrillo::StaticClass()) || ActorImpactado->IsA(ABloqueConcreto::StaticClass()))
 					{
 						ActorImpactado->Destroy();
 						UE_LOG(LogTemp, Warning, TEXT("Bloque destruido!"));
@@ -170,5 +171,5 @@ void ABomberman_0120252Character::DestruirBloque()
 				}
 			}
 		}
-	}
+	}*/
 }

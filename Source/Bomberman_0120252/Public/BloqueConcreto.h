@@ -4,10 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "BloqueBase.h"
 #include "BloqueConcreto.generated.h"
-
 UCLASS()
-class BOMBERMAN_0120252_API ABloqueConcreto : public AActor
+class BOMBERMAN_0120252_API ABloqueConcreto : public ABloqueBase
 {
 	GENERATED_BODY()
 
@@ -18,8 +18,6 @@ protected:
 	virtual void BeginPlay() override;
 
 private:
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* MallaBloqueConcreto;
 
 	void InicializarBloque();
 };

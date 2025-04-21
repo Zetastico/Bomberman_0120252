@@ -3,10 +3,10 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Components/StaticMeshComponent.h" // Añadir esta línea para incluir UStaticMeshComponent
-#include "Materials/MaterialInterface.h" // Añadir esta línea para incluir UMaterialInterface
+#include "BloqueBase.h"
 #include "BloqueMadera.generated.h"
 UCLASS()
-class BOMBERMAN_0120252_API ABloqueMadera : public AActor
+class BOMBERMAN_0120252_API ABloqueMadera : public ABloqueBase
 {
 	GENERATED_BODY()
 	
@@ -26,9 +26,6 @@ public:
 private:
 	FVector PosInicial;
 	int DireccionMovimiento;
-
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* MallaBloqueMadera;
 
 	void InicializarBloque();
 

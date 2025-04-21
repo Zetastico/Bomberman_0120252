@@ -11,6 +11,8 @@
     <None Include="..\..\Source\Bomberman_0120252Editor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.gitattributes" />
+    <None Include="..\..\.gitignore" />
     <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
@@ -60,6 +62,9 @@
     <ClCompile Include="..\..\Source\Bomberman_0120252\Private\BloqueAcero.cpp">
       <Filter>Source\Bomberman_0120252\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\BloqueBase.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Bomberman_0120252\Private\BloqueConcreto.cpp">
       <Filter>Source\Bomberman_0120252\Private</Filter>
     </ClCompile>
@@ -69,10 +74,22 @@
     <ClCompile Include="..\..\Source\Bomberman_0120252\Private\BloqueMadera.cpp">
       <Filter>Source\Bomberman_0120252\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\BloqueMov.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\EnemigoBase.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\PuertaTP.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
     <Filter Include="Source\Bomberman_0120252\Public">
       <UniqueIdentifier>{91119CD5-FACD-3C31-90B4-E8D76D51FA52}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Bomberman_0120252\Public\BloqueAcero.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\BloqueBase.h">
       <Filter>Source\Bomberman_0120252\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Bomberman_0120252\Public\BloqueConcreto.h">
@@ -82,6 +99,15 @@
       <Filter>Source\Bomberman_0120252\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Bomberman_0120252\Public\BloqueMadera.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\BloqueMov.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\EnemigoBase.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\PuertaTP.h">
       <Filter>Source\Bomberman_0120252\Public</Filter>
     </ClCompile>
   </ItemGroup>
