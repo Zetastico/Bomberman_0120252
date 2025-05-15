@@ -120,8 +120,12 @@ struct Z_Construct_UClass_AEnemigoBase_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/EnemigoBase.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Instance_MetaData[] = {
+		{ "ModuleRelativePath", "Public/EnemigoBase.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CubeVisual;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_Instance;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -134,8 +138,10 @@ struct Z_Construct_UClass_AEnemigoBase_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEnemigoBase_Statics::NewProp_CubeVisual = { "CubeVisual", nullptr, (EPropertyFlags)0x00400000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEnemigoBase, CubeVisual), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CubeVisual_MetaData), NewProp_CubeVisual_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEnemigoBase_Statics::NewProp_Instance = { "Instance", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEnemigoBase, Instance), Z_Construct_UClass_AEnemigoBase_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Instance_MetaData), NewProp_Instance_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AEnemigoBase_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemigoBase_Statics::NewProp_CubeVisual,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemigoBase_Statics::NewProp_Instance,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AEnemigoBase_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AEnemigoBase_Statics::DependentSingletons[])() = {
@@ -178,10 +184,10 @@ AEnemigoBase::~AEnemigoBase() {}
 struct Z_CompiledInDeferFile_FID_Users_Magne_Documents_Unreal_Projects_Bomberman_0120252_Source_Bomberman_0120252_Public_EnemigoBase_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AEnemigoBase, AEnemigoBase::StaticClass, TEXT("AEnemigoBase"), &Z_Registration_Info_UClass_AEnemigoBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemigoBase), 1567098035U) },
+		{ Z_Construct_UClass_AEnemigoBase, AEnemigoBase::StaticClass, TEXT("AEnemigoBase"), &Z_Registration_Info_UClass_AEnemigoBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemigoBase), 2643102654U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Magne_Documents_Unreal_Projects_Bomberman_0120252_Source_Bomberman_0120252_Public_EnemigoBase_h_2227103065(TEXT("/Script/Bomberman_0120252"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Magne_Documents_Unreal_Projects_Bomberman_0120252_Source_Bomberman_0120252_Public_EnemigoBase_h_1884052364(TEXT("/Script/Bomberman_0120252"),
 	Z_CompiledInDeferFile_FID_Users_Magne_Documents_Unreal_Projects_Bomberman_0120252_Source_Bomberman_0120252_Public_EnemigoBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Magne_Documents_Unreal_Projects_Bomberman_0120252_Source_Bomberman_0120252_Public_EnemigoBase_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

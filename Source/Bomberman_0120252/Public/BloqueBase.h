@@ -10,8 +10,8 @@ UCLASS()
 class BOMBERMAN_0120252_API ABloqueBase : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	ABloqueBase();
 
@@ -24,9 +24,7 @@ protected:
 
 	bool bPuedeMoverse;
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-
 };

@@ -1,10 +1,10 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #pragma once
-
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
 #include "Bomberman_0120252GameMode.generated.h"
+class AEnemigoBase;
 //class Bloque;
 UCLASS(minimalapi)
 class ABomberman_0120252GameMode : public AGameModeBase
@@ -23,6 +23,11 @@ private:
 	void SpawnMapa2();
 	void SpawnMapa3();
 	void PosJugador();
+	class AEnemigoBase* Enemigo;
+
+	void GenerarMapaFactoryMethon();
+	void GenerarMapaBuilder();
+
 public: 
 	FVector posicionSgtBloque = FVector(1000.0f, 500.0f, 20.0f);
 	TArray<TArray<int>> arrayMapaBloques1 = { 
@@ -37,8 +42,8 @@ public:
 									{4,0,2,0,2,0,2,3,1,2,0,0,2,0,2,0,2,3,1,2,0,4},
 									{4,0,2,0,3,0,2,2,2,1,0,0,2,0,3,0,2,2,2,1,0,4},
 									{4,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,3,0,0,0,4},
-									{4,0,0,0,3,2,2,0,0,0,0,0,0,0,3,2,2,0,0,0,0,4},
-									{4,3,1,0,0,0,0,0,1,2,0,3,1,0,0,0,0,0,1,2,0,4},
+									{4,0,0,0,3,2,2,0,0,0,0,3,0,0,3,2,2,0,0,0,0,4},
+									{4,3,1,0,0,0,0,0,1,2,0,0,1,0,0,0,0,0,1,2,0,4},
 									{4,0,1,0,2,0,2,0,0,0,0,0,1,0,2,0,2,0,0,0,0,4},
 									{4,0,0,0,0,2,2,0,3,1,2,0,0,0,0,2,2,0,3,1,2,4},
 									{4,0,2,2,2,0,2,0,2,2,3,0,2,2,2,0,2,0,2,2,3,4},

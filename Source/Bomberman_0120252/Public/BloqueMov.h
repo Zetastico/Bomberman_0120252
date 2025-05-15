@@ -25,13 +25,18 @@ public:
 
 private:
     FVector PosicionInicial;
-    FVector PosicionObjetivo;
+    FVector PosicionObjetivo1;
+    FVector PosicionObjetivo2;
 
     float TiempoEntreMovimientos;
+
     float TiempoDesdeUltimoMovimiento;
+    float TiempoDesdeUltimoMovimiento2;
     float VelocidadMovimiento;
-
+    int contador;
     bool bMoviendoAObjetivo;
+private:
+    FTimerHandle TimerVisibilidad;
 
-    void ElegirNuevaDireccion();
+    void ElegirNuevaDireccion(int cont);
 };

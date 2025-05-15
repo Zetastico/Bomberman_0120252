@@ -3,26 +3,34 @@
 #include "Bomberman_0120252GameMode.h"
 #include "Bomberman_0120252Character.h"
 #include "UObject/ConstructorHelpers.h"
-#include "Engine/World.h"
+#include "wTiendatBloquesf.h"
 #include "BloqueAcero.h"
 #include "BloqueMadera.h"
 #include "BloqueLadrillo.h"
 #include "BloqueConcreto.h"
+#include "InnerTiendaBloquesXD.h"
 #include "PuertaTP.h"
 #include "BloqueMov.h"
 #include "EnemigoBase.h"
+#include "MapaHielo.h"
+#include "MapaB.h"
+#include "MapaBuilder.h"
+#include "DirectorBuilder.h"
 #include "Math/UnrealMathUtility.h"
 #include "Kismet/GameplayStatics.h"
 
 ABomberman_0120252GameMode::ABomberman_0120252GameMode()
 {
 	// set default pawn class to our Blueprinted character
+	PrimaryActorTick.bCanEverTick = true;
 	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/ThirdPerson/Blueprints/BP_ThirdPersonCharacter"));
 	if (PlayerPawnBPClass.Class != NULL)
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
+
 	}
 }
+
 void ABomberman_0120252GameMode::BeginPlay()
 {
 	Super::BeginPlay();
@@ -35,7 +43,11 @@ void ABomberman_0120252GameMode::BeginPlay()
 	//SpawnBloqueMadera();
 
 	//Mapa v2 Nivel1
-	SpawnMapa1();
+	//SpawnMapa1();
+
+
+
+	//SpawnMapa1();
 
 	//Mapa v2 Nivel2
 	//SpawnMapa2();
@@ -44,10 +56,13 @@ void ABomberman_0120252GameMode::BeginPlay()
 	//SpawnMapa3();
 
 	//Posicionar al jugador
-	PosJugador();
+	//PosJugador();
 
+	//GenerarMapaFactoryMethon();
 
+	GenerarMapaBuilder();
 }
+
 void ABomberman_0120252GameMode::SpawnMapa()
 {
 	if (UWorld* Mundo = GetWorld())
@@ -108,8 +123,10 @@ void ABomberman_0120252GameMode::SpawnMapa1()
 	//Recorrer el array de bloques y hacer spawn de cada uno
 	for (int i = 0; i < arrayMapaBloques1.Num(); i++) 
 	{
-		for (int j = 0; j < arrayMapaBloques1[i].Num(); j++) {
-			if (UWorld* Mundo = GetWorld()) {
+		for (int j = 0; j < arrayMapaBloques1[i].Num(); j++) 
+		{
+			if (UWorld* Mundo = GetWorld()) 
+			{
 				switch(arrayMapaBloques1[i][j])
 				{
 					case 5:
@@ -134,27 +151,31 @@ void ABomberman_0120252GameMode::SpawnMapa1()
 						//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("2"));
 						break;
 					case 0:
-						int contador = 0;
-						int Spawn = FMath::RandRange(0, 5);
-						if (contador == 5) {
-							break;
-						}
-						if (Spawn == 5) {
+						//int contador = 0;
+						//int Spawn = FMath::RandRange(0, 5);
+						//if (contador == 5) {
+						//	break;
+						//}
+						//if (Spawn == 5) {
 							FActorSpawnParameters SpawnParams;
 							SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
 
 							FVector SpawnLocation = FVector(200.0f + i * 200, 150.0f + j * 200, -50.0f);
-
-							AEnemigoBase* Enemigo = GetWorld()->SpawnActor<AEnemigoBase>(
-								AEnemigoBase::StaticClass(),
-								SpawnLocation,
-								FRotator::ZeroRotator,
-								SpawnParams
-							);
-							contador++;
 							
-						}
-						break;
+							
+							AEnemigoBase* Enemigo2 = GetWorld()->SpawnActor<AEnemigoBase>(
+							AEnemigoBase::StaticClass(),
+							SpawnLocation,
+							FRotator::ZeroRotator,
+							SpawnParams);
+							if (Enemigo) {
+								Enemigo = Enemigo2;
+							}
+							
+						//	contador++;
+							
+						//}
+						//break;
 				}
 			}
 		}
@@ -232,18 +253,19 @@ void ABomberman_0120252GameMode::SpawnMapa3()
 void ABomberman_0120252GameMode::PosJugador()
 {
 	TArray<FVector> BloquesCandidatos;
-
-	// Recorrer la matriz buscando bloques de madera (valor 6)
 	for (int i = 0; i < arrayMapaBloques1.Num(); i++)
 	{
 		for (int j = 0; j < arrayMapaBloques1[i].Num(); j++)
 		{
-			if (arrayMapaBloques1[i][j] == 3) // 6 = bloque de madera
+			if (arrayMapaBloques1[i][j] == 3) 
 			{
-				// Verificar si está cerca del borde (0,1,10,11)
-				if (i <= 1 || i >= 10 || j <= 1 || j >= 10)
+				//Para cerca de los bordes
+				//i <= 1 || i >= 20 || j <= 1 || j >= 20
+				//para mas al centro
+				//(i <= 13 && i >= 7) || (j <= 13 && j >= 7)
+				if ((i <= 14 && i >= 8) && (j <= 14 && j >= 8))
 				{
-					FVector Posicion = FVector(200.0f + i * 200, 150.0f + j * 200, 100.0f); // Ajustar Z si es necesario
+					FVector Posicion = FVector(200.0f + i * 200, 150.0f + j * 200, 100.0f);
 					BloquesCandidatos.Add(Posicion);
 				}
 			}
@@ -252,8 +274,8 @@ void ABomberman_0120252GameMode::PosJugador()
 
 	if (BloquesCandidatos.Num() > 0)
 	{
-		int IndexAleatorio = FMath::RandRange(0, BloquesCandidatos.Num() - 1);
-		FVector PosicionFinal = BloquesCandidatos[IndexAleatorio];
+		int posAleatoria = FMath::RandRange(0, BloquesCandidatos.Num() - 1);
+		FVector PosicionFinal = BloquesCandidatos[posAleatoria];
 
 		if (APlayerController* PC = UGameplayStatics::GetPlayerController(this, 0))
 		{
@@ -267,4 +289,58 @@ void ABomberman_0120252GameMode::PosJugador()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("No se encontraron bloques de madera cercanos a los bordes."));
 	}
+}
+
+void ABomberman_0120252GameMode::GenerarMapaFactoryMethon()
+{
+	//Factory de bloques
+	UWorld* Mundo = GetWorld();
+	AInnerTiendaBloquesXD* fab = Mundo->SpawnActor<AInnerTiendaBloquesXD>(AInnerTiendaBloquesXD::StaticClass());
+
+	//Recorrer el array de bloques y hacer spawn de cada uno
+	for (int i = 0; i < arrayMapaBloques1.Num(); i++)
+	{
+		for (int j = 0; j < arrayMapaBloques1[i].Num(); j++)
+		{
+			if (Mundo)
+			{
+				switch (arrayMapaBloques1[i][j])
+				{
+				case 4:
+					fab->ConcoctBloque("F1", FVector(300.0f + i * 200, 150.0f + j * 200, -100.0f));
+					break;
+				case 3:
+					fab->ConcoctBloque("Madera", FVector(300.0f + i * 200, 150.0f + j * 200, -100.0f));
+					break;
+				case 2:
+					fab->ConcoctBloque("Acero", FVector(300.0f + i * 200, 150.0f + j * 200, -100.0f));
+					break;
+				case 1:
+					fab->ConcoctBloque("MaderaMagico", FVector(300.0f + i * 200, 150.0f + j * 200, -100.0f));
+					break;
+				case 0:
+
+					FActorSpawnParameters SpawnParams;
+					SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
+
+					FVector SpawnLocation = FVector(200.0f + i * 200, 150.0f + j * 200, -50.0f);
+
+
+					AEnemigoBase* Enemigo2 = GetWorld()->SpawnActor<AEnemigoBase>(
+						AEnemigoBase::StaticClass(),
+						SpawnLocation,
+						FRotator::ZeroRotator,
+						SpawnParams);
+					if (Enemigo) {
+						Enemigo = Enemigo2;
+					}
+					break;
+				}
+			}
+		}
+	}
+}
+
+void ABomberman_0120252GameMode::GenerarMapaBuilder()
+{
 }

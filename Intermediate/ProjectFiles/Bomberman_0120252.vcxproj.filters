@@ -62,10 +62,31 @@
     <ClCompile Include="..\..\Source\Bomberman_0120252\Private\BloqueAcero.cpp">
       <Filter>Source\Bomberman_0120252\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\BloqueAceroMagico.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Bomberman_0120252\Private\BloqueBase.cpp">
       <Filter>Source\Bomberman_0120252\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Bomberman_0120252\Private\BloqueConcreto.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\BloqueF.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\BloqueF1.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\BloqueFAcero.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\BloqueFAceroMagico.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\BloqueFMadera.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\BloqueFMaderaMagico.cpp">
       <Filter>Source\Bomberman_0120252\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Bomberman_0120252\Private\BloqueLadrillo.cpp">
@@ -77,10 +98,37 @@
     <ClCompile Include="..\..\Source\Bomberman_0120252\Private\BloqueMov.cpp">
       <Filter>Source\Bomberman_0120252\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\Builder_Principal.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\DirectorBuilder.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Bomberman_0120252\Private\EnemigoBase.cpp">
       <Filter>Source\Bomberman_0120252\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\FabricaBloques.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\InnerTiendaBloquesXD.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\MapaB.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\MapaBuilder.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\MapaHielo.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\PlanoMapa.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Bomberman_0120252\Private\PuertaTP.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\wTiendatBloquesf.cpp">
       <Filter>Source\Bomberman_0120252\Private</Filter>
     </ClCompile>
     <Filter Include="Source\Bomberman_0120252\Public">
@@ -89,10 +137,31 @@
     <ClCompile Include="..\..\Source\Bomberman_0120252\Public\BloqueAcero.h">
       <Filter>Source\Bomberman_0120252\Public</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\BloqueAceroMagico.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Bomberman_0120252\Public\BloqueBase.h">
       <Filter>Source\Bomberman_0120252\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Bomberman_0120252\Public\BloqueConcreto.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\BloqueF.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\BloqueF1.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\BloqueFAcero.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\BloqueFAceroMagico.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\BloqueFMadera.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\BloqueFMaderaMagico.h">
       <Filter>Source\Bomberman_0120252\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Bomberman_0120252\Public\BloqueLadrillo.h">
@@ -104,10 +173,37 @@
     <ClCompile Include="..\..\Source\Bomberman_0120252\Public\BloqueMov.h">
       <Filter>Source\Bomberman_0120252\Public</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\Builder_Principal.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\DirectorBuilder.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Bomberman_0120252\Public\EnemigoBase.h">
       <Filter>Source\Bomberman_0120252\Public</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\FabricaBloques.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\InnerTiendaBloquesXD.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\MapaB.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\MapaBuilder.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\MapaHielo.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\PlanoMapa.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Bomberman_0120252\Public\PuertaTP.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\wTiendatBloquesf.h">
       <Filter>Source\Bomberman_0120252\Public</Filter>
     </ClCompile>
   </ItemGroup>

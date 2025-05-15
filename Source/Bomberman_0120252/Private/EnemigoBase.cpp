@@ -1,10 +1,12 @@
-#include "EnemigoBase.h"
+#include "AIController.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/StaticMeshComponent.h"
-#include "GameFramework/CharacterMovementComponent.h"
-#include "UObject/ConstructorHelpers.h"
+#include "EnemigoBase.h"
 #include "Engine/StaticMesh.h"
-#include "AIController.h"
+#include "Engine/World.h"
+#include "GameFramework/CharacterMovementComponent.h"
+#include "Kismet/GameplayStatics.h"
+#include "UObject/ConstructorHelpers.h"
 
 AEnemigoBase::AEnemigoBase()
 {
@@ -33,11 +35,20 @@ AEnemigoBase::AEnemigoBase()
     // ?? LÍNEAS CLAVE PARA QUE FUNCIONE CUANDO SE SPAWNEA
     AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
     AIControllerClass = AAIController::StaticClass();
+
+    TArray<AActor*> Instances;
+    UGameplayStatics::GetAllActorsOfClass(GetWorld(), AEnemigoBase::StaticClass(), Instances);
+    if (Instances.Num() >= 1) {
+        Instance = Cast<AEnemigoBase>(Instances[0]);
+        Destroy();
+    }
 }
 
 void AEnemigoBase::BeginPlay()
 {
     Super::BeginPlay();
+
+    
 }
 
 void AEnemigoBase::Tick(float DeltaTime)
@@ -64,3 +75,4 @@ void AEnemigoBase::OnCapsuleHit(UPrimitiveComponent* HitComp, AActor* OtherActor
         MoveDirection.Y *= -1;
     }
 }
+
