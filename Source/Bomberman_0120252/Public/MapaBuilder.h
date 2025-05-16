@@ -16,9 +16,9 @@ class BOMBERMAN_0120252_API IMapaBuilder
 	GENERATED_BODY()
 
 public:
-	virtual void ConstruirMuros(FVector pos, FString tipo) = 0;
-	virtual void ConstruirBloque1(FVector pos, FString tipo) = 0;
-	virtual void ConstruirBloque2(FVector pos, FString tipo) = 0;
-	virtual void ConstruirBloque3(FVector pos, FString tipo) = 0;
+	virtual void EstablecerMapa(FVector pos, FString tipoBloque) = 0;
+	virtual void EstablecerEnemigos(FVector pos, FString tipoEnemigos) = 0;
+	virtual void EstablecerPowerUp(FVector pos, FString tipoPowerUp) = 0;
+	virtual void EstablecerObstaculos(FVector pos, FString tipoObstaculo) = 0;
 	virtual class AMapaB* GetMapa() = 0;
 };

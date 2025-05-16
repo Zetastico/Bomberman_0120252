@@ -14,6 +14,7 @@ BOMBERMAN_0120252_API UClass* Z_Construct_UClass_ABuilder_Principal();
 BOMBERMAN_0120252_API UClass* Z_Construct_UClass_ABuilder_Principal_NoRegister();
 BOMBERMAN_0120252_API UClass* Z_Construct_UClass_ADirectorBuilder_NoRegister();
 BOMBERMAN_0120252_API UClass* Z_Construct_UClass_AMapaHielo_NoRegister();
+BOMBERMAN_0120252_API UClass* Z_Construct_UClass_AMapaPiedra_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_AActor();
 UPackage* Z_Construct_UPackage__Script_Bomberman_0120252();
 // End Cross Module References
@@ -34,7 +35,11 @@ struct Z_Construct_UClass_ABuilder_Principal_Statics
 		{ "IncludePath", "Builder_Principal.h" },
 		{ "ModuleRelativePath", "Public/Builder_Principal.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MapaHielo_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MapaHieloBuilder_MetaData[] = {
+		{ "Category", "Main" },
+		{ "ModuleRelativePath", "Public/Builder_Principal.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MapaPiedraBuilder_MetaData[] = {
 		{ "Category", "Main" },
 		{ "ModuleRelativePath", "Public/Builder_Principal.h" },
 	};
@@ -43,7 +48,8 @@ struct Z_Construct_UClass_ABuilder_Principal_Statics
 		{ "ModuleRelativePath", "Public/Builder_Principal.h" },
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_MapaHielo;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_MapaHieloBuilder;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_MapaPiedraBuilder;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Director;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
@@ -52,10 +58,12 @@ struct Z_Construct_UClass_ABuilder_Principal_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABuilder_Principal_Statics::NewProp_MapaHielo = { "MapaHielo", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABuilder_Principal, MapaHielo), Z_Construct_UClass_AMapaHielo_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MapaHielo_MetaData), NewProp_MapaHielo_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABuilder_Principal_Statics::NewProp_MapaHieloBuilder = { "MapaHieloBuilder", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABuilder_Principal, MapaHieloBuilder), Z_Construct_UClass_AMapaHielo_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MapaHieloBuilder_MetaData), NewProp_MapaHieloBuilder_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABuilder_Principal_Statics::NewProp_MapaPiedraBuilder = { "MapaPiedraBuilder", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABuilder_Principal, MapaPiedraBuilder), Z_Construct_UClass_AMapaPiedra_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MapaPiedraBuilder_MetaData), NewProp_MapaPiedraBuilder_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABuilder_Principal_Statics::NewProp_Director = { "Director", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABuilder_Principal, Director), Z_Construct_UClass_ADirectorBuilder_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Director_MetaData), NewProp_Director_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABuilder_Principal_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABuilder_Principal_Statics::NewProp_MapaHielo,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABuilder_Principal_Statics::NewProp_MapaHieloBuilder,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABuilder_Principal_Statics::NewProp_MapaPiedraBuilder,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABuilder_Principal_Statics::NewProp_Director,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ABuilder_Principal_Statics::PropPointers) < 2048);
@@ -99,10 +107,10 @@ ABuilder_Principal::~ABuilder_Principal() {}
 struct Z_CompiledInDeferFile_FID_Users_Magne_Documents_Unreal_Projects_Bomberman_0120252_Source_Bomberman_0120252_Public_Builder_Principal_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABuilder_Principal, ABuilder_Principal::StaticClass, TEXT("ABuilder_Principal"), &Z_Registration_Info_UClass_ABuilder_Principal, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABuilder_Principal), 1126560153U) },
+		{ Z_Construct_UClass_ABuilder_Principal, ABuilder_Principal::StaticClass, TEXT("ABuilder_Principal"), &Z_Registration_Info_UClass_ABuilder_Principal, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABuilder_Principal), 2373450355U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Magne_Documents_Unreal_Projects_Bomberman_0120252_Source_Bomberman_0120252_Public_Builder_Principal_h_4135019619(TEXT("/Script/Bomberman_0120252"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Magne_Documents_Unreal_Projects_Bomberman_0120252_Source_Bomberman_0120252_Public_Builder_Principal_h_700295451(TEXT("/Script/Bomberman_0120252"),
 	Z_CompiledInDeferFile_FID_Users_Magne_Documents_Unreal_Projects_Bomberman_0120252_Source_Bomberman_0120252_Public_Builder_Principal_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Magne_Documents_Unreal_Projects_Bomberman_0120252_Source_Bomberman_0120252_Public_Builder_Principal_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

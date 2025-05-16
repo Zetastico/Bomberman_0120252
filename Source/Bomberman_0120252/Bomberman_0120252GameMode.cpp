@@ -15,6 +15,7 @@
 #include "MapaHielo.h"
 #include "MapaB.h"
 #include "MapaBuilder.h"
+#include "Builder_Principal.h"
 #include "DirectorBuilder.h"
 #include "Math/UnrealMathUtility.h"
 #include "Kismet/GameplayStatics.h"
@@ -38,6 +39,7 @@ void ABomberman_0120252GameMode::BeginPlay()
 	
 	// Generar el MAPA al inicio del juego
 	SpawnMapa();
+	GenerarMapaBuilder(arrayMapaBloques2);
 
 	//Genera bloques de madera
 	//SpawnBloqueMadera();
@@ -60,7 +62,12 @@ void ABomberman_0120252GameMode::BeginPlay()
 
 	//GenerarMapaFactoryMethon();
 
-	GenerarMapaBuilder();
+}
+
+void ABomberman_0120252GameMode::GenerarMapaBuilder(TArray<TArray<int>> map) {
+	UWorld* Mundo = GetWorld();
+	ABuilder_Principal* BuilderP = Mundo->SpawnActor<ABuilder_Principal>(ABuilder_Principal::StaticClass());
+	BuilderP->HacerHielo(map);
 }
 
 void ABomberman_0120252GameMode::SpawnMapa()
@@ -341,6 +348,5 @@ void ABomberman_0120252GameMode::GenerarMapaFactoryMethon()
 	}
 }
 
-void ABomberman_0120252GameMode::GenerarMapaBuilder()
-{
-}
+
+

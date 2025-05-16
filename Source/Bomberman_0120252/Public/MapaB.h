@@ -25,9 +25,16 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	void CrearMuro(FVector posicion, FString tipoMuro);
-	void CrearBloque1(FVector posicion, FString tipoBloque);
-	void CrearBloque2(FVector posicion, FString tipoBloque);
-	void CrearBloque3(FVector posicion, FString tipoBloque);
+	void CrearMapa(FVector posicion, FString tipoMuro);
+	void CrearEnemigos(FVector posicion, FString TipoEnemigo);
+	void CrearPowerUp(FVector posicion, FString tipoPowerUp);
+	void CrearObstaculos(FVector posicion, FString tipoObstaculo);
 	void CaracteristicasDelMapa();
 };
+/*
+virtual void EstablecerMapa(FVector posicion) = 0;
+virtual void EstablecerEnemigos(FVector posicion, FString TipoEnemigo) = 0;
+virtual void EstablecerPowerUp(FVector posicion, FString tipoPowerUp) = 0;
+virtual void EstablecerObstaculos(FVector posicion, FString tipoObstaculo) = 0;
+
+*/

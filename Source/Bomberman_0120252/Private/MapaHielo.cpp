@@ -30,29 +30,29 @@ void AMapaHielo::Tick(float DeltaTime)
 
 }
 
-void AMapaHielo::ConstruirMuros(FVector pos, FString tipo) {
+void AMapaHielo::EstablecerMapa(FVector pos, FString tipobloque) {
 	if (!Mapa) { return; }
-	Mapa->CrearMuro(pos, "Muro");
+	Mapa->CrearMapa(pos, tipobloque);
 }
 
-void AMapaHielo::ConstruirBloque1(FVector pos, FString tipo)
+void AMapaHielo::EstablecerEnemigos(FVector pos, FString tipoenemigo)
 {
 	if (!Mapa) { return; }
-	Mapa->CrearBloque1(pos, "Madera");
-
-}
-
-void AMapaHielo::ConstruirBloque2(FVector pos, FString tipo)
-{
-	if (!Mapa) { return; }
-	Mapa->CrearBloque2(pos, "Metal");
+	Mapa->CrearEnemigos(pos, tipoenemigo);
 
 }
 
-void AMapaHielo::ConstruirBloque3(FVector pos, FString tipo)
+void AMapaHielo::EstablecerPowerUp(FVector pos, FString tipopowerup)
 {
 	if (!Mapa) { return; }
-	Mapa->CrearBloque3(pos, "Ns");
+	Mapa->CrearPowerUp(pos, tipopowerup);
+
+}
+
+void AMapaHielo::EstablecerObstaculos(FVector pos, FString tipoobstaculos)
+{
+	if (!Mapa) { return; }
+	Mapa->CrearObstaculos(pos, tipoobstaculos);
 
 }
 

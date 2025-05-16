@@ -28,9 +28,9 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	virtual void ConstruirMuros(FVector pos, FString tipo) override;
-	virtual void ConstruirBloque1(FVector pos, FString tipo) override;
-	virtual void ConstruirBloque2(FVector pos, FString tipo) override;
-	virtual void ConstruirBloque3(FVector pos, FString tipo) override;
+	virtual void EstablecerMapa(FVector pos, FString tipoBloque) override;
+	virtual void EstablecerEnemigos(FVector pos, FString tipoEnemigo) override;
+	virtual void EstablecerPowerUp(FVector pos, FString tipoPowerUp) override;
+	virtual void EstablecerObstaculos(FVector pos, FString tipoObstaculo) override;
 	virtual class AMapaB* GetMapa() override;
 };

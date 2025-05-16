@@ -27,6 +27,8 @@ void ADirectorBuilder::Tick(float DeltaTime)
 
 void ADirectorBuilder::SetMapaBuilder(AActor* Builder)
 {
+	UE_LOG(LogTemp, Error, TEXT("Entro aqui2"));
+
 	//Cast the passed Actor and set the Builder
 	MapaBuilder = Cast<IMapaBuilder>(Builder);
 	if (!MapaBuilder) //Log Error if cast fails
@@ -52,11 +54,14 @@ void ADirectorBuilder::ConstructMapa(FVector pos, FString tipo)
 {
 	//Log if the Builder is NULL
 	if (!MapaBuilder) {
+		UE_LOG(LogTemp, Error, TEXT("ConstructMapa1(): Builder is NULL"));
 		return;
 	}
-				//Creates the buildings
-		MapaBuilder->ConstruirMuros(pos, tipo);
-		MapaBuilder->ConstruirBloque1(pos, tipo);
-		MapaBuilder->ConstruirBloque2(pos, tipo);
-		MapaBuilder->ConstruirBloque3(pos, tipo);
+	UE_LOG(LogTemp, Error, TEXT("Entro aqui2"));
+
+	//Creates the buildings
+	MapaBuilder->EstablecerMapa(pos, tipo);
+	MapaBuilder->EstablecerEnemigos(pos, tipo);
+	MapaBuilder->EstablecerObstaculos(pos, tipo);
+
 }

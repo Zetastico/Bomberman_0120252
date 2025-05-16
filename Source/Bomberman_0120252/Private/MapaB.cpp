@@ -5,7 +5,7 @@
 #include "BloqueAcero.h"
 #include "BloqueConcreto.h"
 #include "BloqueMadera.h"
-
+#include "BloqueHielo.h"
 // Sets default values
 AMapaB::AMapaB()
 {
@@ -28,37 +28,46 @@ void AMapaB::Tick(float DeltaTime)
 
 }
 
-void AMapaB::CrearMuro(FVector posicion, FString tipoMuro)
+void AMapaB::CrearMapa(FVector posicion, FString tipoMuro)
 {
+	//Pierda
 	if (tipoMuro == "Muro") {
 	Mundo->SpawnActor<ABloqueAcero>(ABloqueAcero::StaticClass(), posicion, FRotator::ZeroRotator)
 		->SetActorScale3D(FVector(2.0f, 2.0f, 2.0f));
 
 	}
-}
-
-void AMapaB::CrearBloque1(FVector posicion, FString tipoBloque)
-{
-	if (tipoBloque == "Madera") {
-	Mundo->SpawnActor<ABloqueMadera>(ABloqueMadera::StaticClass(), posicion, FRotator::ZeroRotator)
-		->SetActorScale3D(FVector(2.0f, 2.0f, 2.0f));
+	else if (tipoMuro == "Tipo1") {
+		Mundo->SpawnActor<ABloqueMadera>(ABloqueMadera::StaticClass(), posicion, FRotator::ZeroRotator)
+			->SetActorScale3D(FVector(2.0f, 2.0f, 2.0f));
+	}
+	else if (tipoMuro == "Tipo2") {
+		Mundo->SpawnActor<ABloqueConcreto>(ABloqueConcreto::StaticClass(), posicion, FRotator::ZeroRotator)
+			->SetActorScale3D(FVector(2.0f, 2.0f, 2.0f));
+	}
+	else if (tipoMuro == "Tipo3") {
+		Mundo->SpawnActor<ABloqueAcero>(ABloqueAcero::StaticClass(), posicion, FRotator::ZeroRotator)
+			->SetActorScale3D(FVector(2.0f, 2.0f, 2.0f));
+	}
+	else if(tipoMuro == "Hielo") {
+		//Hielo
+		Mundo->SpawnActor<ABloqueHielo>(ABloqueHielo::StaticClass(), posicion, FRotator::ZeroRotator)
+			->SetActorScale3D(FVector(2.0f, 2.0f, 2.0f));
 	}
 }
 
-void AMapaB::CrearBloque2(FVector posicion, FString tipoBloque)
+void AMapaB::CrearEnemigos(FVector posicion, FString tipoEnemigo)
 {
-	if (tipoBloque == "Concreto") {
-	Mundo->SpawnActor<ABloqueConcreto>(ABloqueConcreto::StaticClass(), posicion, FRotator::ZeroRotator)
-		->SetActorScale3D(FVector(2.0f, 2.0f, 2.0f));
-	}
+	
 }
 
-void AMapaB::CrearBloque3(FVector posicion, FString tipoBloque)
+void AMapaB::CrearPowerUp(FVector posicion, FString tipoPowerUp)
 {
-	if (tipoBloque == "Acero") {
-	Mundo->SpawnActor<ABloqueAcero>(ABloqueAcero::StaticClass(), posicion, FRotator::ZeroRotator)
-		->SetActorScale3D(FVector(2.0f, 2.0f, 2.0f));
-	}
+
+}
+
+void AMapaB::CrearObstaculos(FVector posicion, FString tipoObstaculo)
+{
+
 }
 
 void AMapaB::CaracteristicasDelMapa()

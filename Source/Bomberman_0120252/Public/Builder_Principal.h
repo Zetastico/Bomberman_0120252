@@ -23,9 +23,15 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	void HacerPiedra();
+	void HacerHielo(TArray<TArray<int>> map);
+
 private:
 	UPROPERTY(VIsibleAnywhere, Category = "Main")
-	class AMapaHielo* MapaHielo;
+	class AMapaHielo* MapaHieloBuilder;
+
+	UPROPERTY(VIsibleAnywhere, Category = "Main")
+	class AMapaPiedra* MapaPiedraBuilder;
 
 	UPROPERTY(VIsibleAnywhere, Category = "Main")
 	class ADirectorBuilder* Director;
@@ -39,8 +45,8 @@ private:
 										{4,0,2,2,2,0,2,0,2,2,2,4},
 										{4,0,0,0,1,0,1,0,0,0,0,4},
 										{4,2,2,0,2,0,2,1,2,1,0,4},
-										{4,0,2,0,2,0,2,2,1,2,0,4},
-										{4,0,2,0,2,0,2,2,2,1,0,4},
+										{4,0,3,0,2,0,2,2,1,2,0,4},
+										{4,0,3,0,2,0,2,2,2,1,0,4},
 										{4,0,0,0,0,0,0,0,0,0,0,4},
 										{4,4,4,4,4,4,4,4,4,4,4,4} };
 

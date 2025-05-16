@@ -89,6 +89,9 @@
     <ClCompile Include="..\..\Source\Bomberman_0120252\Private\BloqueFMaderaMagico.cpp">
       <Filter>Source\Bomberman_0120252\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\BloqueHielo.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Bomberman_0120252\Private\BloqueLadrillo.cpp">
       <Filter>Source\Bomberman_0120252\Private</Filter>
     </ClCompile>
@@ -120,6 +123,9 @@
       <Filter>Source\Bomberman_0120252\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Bomberman_0120252\Private\MapaHielo.cpp">
+      <Filter>Source\Bomberman_0120252\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Private\MapaPiedra.cpp">
       <Filter>Source\Bomberman_0120252\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Bomberman_0120252\Private\PlanoMapa.cpp">
@@ -164,6 +170,9 @@
     <ClCompile Include="..\..\Source\Bomberman_0120252\Public\BloqueFMaderaMagico.h">
       <Filter>Source\Bomberman_0120252\Public</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\BloqueHielo.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Bomberman_0120252\Public\BloqueLadrillo.h">
       <Filter>Source\Bomberman_0120252\Public</Filter>
     </ClCompile>
@@ -195,6 +204,9 @@
       <Filter>Source\Bomberman_0120252\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Bomberman_0120252\Public\MapaHielo.h">
+      <Filter>Source\Bomberman_0120252\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Bomberman_0120252\Public\MapaPiedra.h">
       <Filter>Source\Bomberman_0120252\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Bomberman_0120252\Public\PlanoMapa.h">
